@@ -4,7 +4,38 @@ import '../model/post.dart';
 
 class ViewDemo extends StatelessWidget {
 
-Widget _pageItemBuilder(BuildContext context,int index){
+List<Widget> _buildTiles(int length){
+
+  return List.generate(length, (int index){
+    return Container(
+          color: Colors.grey[300],
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'Item$index',
+            style:TextStyle(
+              fontSize:18.0,
+              color:Colors.grey
+            ),
+          ),
+        );
+  });
+}
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      crossAxisCount: 3,
+      crossAxisSpacing: 16.0,
+      mainAxisSpacing: 16.0,
+      children: _buildTiles(100),
+    );
+  }
+}
+
+
+class PageViewBuilderDemo extends StatelessWidget {
+
+      Widget _pageItemBuilder(BuildContext context,int index){
 
   return Stack(
     children: <Widget>[
@@ -38,6 +69,7 @@ Widget _pageItemBuilder(BuildContext context,int index){
 }
 
 
+
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
@@ -46,7 +78,6 @@ Widget _pageItemBuilder(BuildContext context,int index){
     );
   }
 }
-
 
 
 class PageViewDemo extends StatelessWidget {
