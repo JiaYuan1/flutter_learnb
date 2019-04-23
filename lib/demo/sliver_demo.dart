@@ -9,9 +9,22 @@ class SliverDemo extends StatelessWidget {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            title: Text('ninghao'),
+           // title: Text('ninghao'),
            // pinned: true,
            floating: true,
+           expandedHeight: 178.0,
+           flexibleSpace: FlexibleSpaceBar(
+             title: Text('ningao flutter',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      letterSpacing: 3.0,
+                      fontWeight: FontWeight.w400,
+                  ),
+             ),
+             background: Image.network('https://resources.ninghao.net/images/overkill.png',
+                  fit: BoxFit.cover,
+             ),
+           ),
           ),
           SliverSafeArea(
             sliver:    SliverPadding(
